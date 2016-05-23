@@ -16,10 +16,13 @@ ChildComponentB.html
 <button ng-click="$ctrl.buttonClick">Update value - notify my parent.</button>
 ```
 
-```javascript
+```
 ParentComponentA.html
 <child-component-b on-update="$ctrl.updateEventFromChild('I am just a string',key1,key2)"></child-component-b>
+```
+**Parent html on-update function must use `key1` and `key2` as input parameters name. Those name defined in Child controller.**
 
+```javascript
 ParentComponentA.js
 ...
 ctrl.updateEventFromChild = function(hardCodeString, myKey1Value, myKey2Value){
