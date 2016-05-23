@@ -4,6 +4,7 @@
 NOTES: two output events are register on parent html & controller. Event callback parameters name must match on child component's ctrl.onUpdate function.
 For example, 'ParentComponentA' listen on on-update event propagate on 'ChildComponentB' some click action.
 
+```javascript
 ChildComponentB.js
 ...
 ctrl.buttonClick = function(){
@@ -13,7 +14,9 @@ ctrl.buttonClick = function(){
 
 ChildComponentB.html
 <button ng-click="$ctrl.buttonClick">Update value - notify my parent.</button>
+```
 
+```javascript
 ParentComponentA.html
 <child-component-b on-update="$ctrl.updateEventFromChild('I am just a string',key1,key2)"></child-component-b>
 
@@ -25,5 +28,5 @@ ctrl.updateEventFromChild = function(hardCodeString, myKey1Value, myKey2Value){
   // expect(myKey2Value).toBe('123');
 }
 ...
-
-Parent html must use 
+```
+**Parent html must use the same proper name defined in Child controller click function.**
